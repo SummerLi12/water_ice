@@ -8,7 +8,7 @@ import {
   Phone,
   Instagram,
   ChevronRight,
-  Globe,
+  IceCreamCone,
 } from 'lucide-react';
 import heroImage from './assets/WaterAndIce_Hero.jpg';
 import heroImage1 from './assets/9.png';
@@ -250,7 +250,7 @@ export default function App() {
               onClick={toggleLang}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-stone-900 text-xs font-bold tracking-widest hover:bg-stone-100 transition-colors shadow-md border border-stone-200"
             >
-              <Globe className="w-3.5 h-3.5" />
+              <IceCreamCone className="w-3.5 h-3.5" />
               {lang === 'en' ? 'ES' : 'EN'}
             </button>
           </div>
@@ -261,7 +261,7 @@ export default function App() {
               onClick={toggleLang}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-stone-900 text-xs font-bold tracking-widest hover:bg-stone-100 transition-colors shadow-md border border-stone-200"
             >
-              <Globe className="w-3.5 h-3.5" />
+              <IceCreamCone className="w-3.5 h-3.5" />
               {lang === 'en' ? 'ES' : 'EN'}
             </button>
             <button
