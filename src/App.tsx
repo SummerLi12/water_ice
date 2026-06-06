@@ -8,6 +8,7 @@ import {
   Phone,
   Instagram,
   ChevronRight,
+  Globe,
 } from 'lucide-react';
 import heroImage from './assets/WaterAndIce_Hero.jpg';
 import heroImage1 from './assets/9.png';
@@ -70,14 +71,118 @@ const PRODUCTS = [
   { id: 25, name: "Tosti Verdura",                image: tostiVerduraImg },
   { id: 26, name: "Triple Berry Banana Smoothie", image: tripleBerrySmoothieImg },
   { id: 27, name: "Tropical Blend Smoothie",      image: tropicalBlendSmoothieImg },
+  { id: 28, name: "Fruit Cocktail Spicy",         image: fruitCocktailSpicyImg },
 ];
+
+const translations = {
+  en: {
+    nav: { home: 'Home', gallery: 'Gallery', services: 'Services', menu: 'Menu', about: 'About Us', contact: 'Contact' },
+    hero: { viewFlavors: 'View Flavors', findUs: 'Find Us' },
+    gallery: {
+      title: 'Our Signature Flavors',
+      subtitle: 'Each item is a masterpiece, made with locally sourced ingredients and a passion for perfection.',
+      showMore: 'Show More',
+      showLess: 'Show Less',
+    },
+    services: {
+      tag: 'What We Offer',
+      title: 'Purified Reverse Osmosis Water',
+      subtitle: 'We use a professional reverse osmosis purification system to remove impurities and deliver clean, fresh, great-tasting water.',
+      payTag: 'Pay As You Go',
+      payDesc: 'No commitment needed. Fill up any time and pay per gallon — perfect for occasional use or trying us out.',
+      payFeatures: ['No sign-up required', 'Fill any size container', 'Fresh every visit'],
+      prepaidTag: 'Prepaid Program',
+      prepaidBadge: 'Best Value',
+      prepaidDesc: 'Pre-purchase your water and save. Ideal for families or daily use — the more you use, the more you save.',
+      prepaidFeatures: ['Save 12% vs regular price', 'Great for daily & family use', 'Locked-in low rate'],
+      gallon: '/ gallon',
+    },
+    about: {
+      tag: 'Our Story',
+      title: 'Your Neighborhood Stop for Water, Ice & More',
+      p1before: 'Located at ',
+      p1bold: '40th Street & Thomas in Phoenix, AZ',
+      p1after: ', Water & Ice is a one-stop neighborhood shop serving the community with quality, freshness, and great value every day.',
+      p2before: 'We carry ',
+      p2bold: 'The Original Thrifty Ice Cream',
+      p2after: ' — a classic Phoenix staple — alongside a wide variety of frozen treats, agua frescas, licuados, smoothies, and savory snacks. From Mangoneadas to Sandia Loka, every item is made fresh to order with real ingredients.',
+      p3before: 'We also offer ',
+      p3bold: 'purified reverse osmosis water',
+      p3after: " by the gallon at some of the most affordable prices in town — because clean water shouldn't be a luxury.",
+      statGallon: 'Per Gallon',
+      statDays: 'Days a Week',
+      tags: ['Thrifty Ice Cream', 'Purified RO Water', 'Mangoneadas', 'Agua Frescas', 'Licuados & Smoothies', 'Shaved Ice', 'Fruit Cocktails', 'Snacks & More'],
+    },
+    contact: {
+      title: 'Visit Our Shop',
+      subtitle: "We'd love to see you! Stop by for a tasting or just to say hello.",
+      addressLabel: 'Address',
+      phoneLabel: 'Phone',
+      hoursLabel: 'Opening Hours',
+      hours: ['Mon – Thu: 9:00 AM – 9:00 PM', 'Fri – Sat: 9:00 AM – 10:00 PM', 'Sun: 10:00 AM – 9:00 PM'],
+    },
+    footer: { rights: 'All rights reserved.', createdBy: 'Created by', privacy: 'Privacy', terms: 'Terms' },
+  },
+  es: {
+    nav: { home: 'Inicio', gallery: 'Galería', services: 'Servicios', menu: 'Menú', about: 'Nosotros', contact: 'Contacto' },
+    hero: { viewFlavors: 'Ver Sabores', findUs: 'Encuéntranos' },
+    gallery: {
+      title: 'Nuestros Sabores Especiales',
+      subtitle: 'Cada artículo es una obra maestra, hecha con ingredientes locales y pasión por la perfección.',
+      showMore: 'Ver Más',
+      showLess: 'Ver Menos',
+    },
+    services: {
+      tag: 'Lo Que Ofrecemos',
+      title: 'Agua Purificada por Ósmosis Inversa',
+      subtitle: 'Usamos un sistema de purificación de ósmosis inversa profesional para eliminar impurezas y entregar agua limpia, fresca y deliciosa.',
+      payTag: 'Paga Por Uso',
+      payDesc: 'Sin compromiso. Llena en cualquier momento y paga por galón — perfecto para uso ocasional.',
+      payFeatures: ['Sin registro requerido', 'Llena cualquier recipiente', 'Fresco en cada visita'],
+      prepaidTag: 'Programa Prepagado',
+      prepaidBadge: 'Mejor Precio',
+      prepaidDesc: 'Compra tu agua con anticipación y ahorra. Ideal para familias o uso diario — entre más usas, más ahorras.',
+      prepaidFeatures: ['Ahorra 12% vs precio regular', 'Ideal para uso diario y familiar', 'Tarifa baja fija'],
+      gallon: '/ galón',
+    },
+    about: {
+      tag: 'Nuestra Historia',
+      title: 'Tu Parada del Vecindario para Agua, Hielo y Más',
+      p1before: 'Ubicados en ',
+      p1bold: '40th Street & Thomas en Phoenix, AZ',
+      p1after: ', Water & Ice es una tienda de vecindario donde la comunidad encuentra calidad, frescura y gran valor todos los días.',
+      p2before: 'Ofrecemos ',
+      p2bold: 'The Original Thrifty Ice Cream',
+      p2after: ' — un clásico de Phoenix — junto con una gran variedad de helados, aguas frescas, licuados, smoothies y botanas. Desde Mangoneadas hasta Sandia Loka, todo se prepara al momento con ingredientes reales.',
+      p3before: 'También ofrecemos ',
+      p3bold: 'agua purificada por ósmosis inversa',
+      p3after: ' por galón a precios muy accesibles — porque el agua limpia no debe ser un lujo.',
+      statGallon: 'Por Galón',
+      statDays: 'Días a la Semana',
+      tags: ['Thrifty Ice Cream', 'Agua RO Purificada', 'Mangoneadas', 'Aguas Frescas', 'Licuados y Smoothies', 'Raspados', 'Cócteles de Fruta', 'Botanas y Más'],
+    },
+    contact: {
+      title: 'Visítanos',
+      subtitle: '¡Nos encantaría verte! Pasa a probar o solo a saludar.',
+      addressLabel: 'Dirección',
+      phoneLabel: 'Teléfono',
+      hoursLabel: 'Horario',
+      hours: ['Lun – Jue: 9:00 AM – 9:00 PM', 'Vie – Sáb: 9:00 AM – 10:00 PM', 'Dom: 10:00 AM – 9:00 PM'],
+    },
+    footer: { rights: 'Todos los derechos reservados.', createdBy: 'Creado por', privacy: 'Privacidad', terms: 'Términos' },
+  },
+} as const;
+
+type Lang = keyof typeof translations;
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
   const [showAllProducts, setShowAllProducts] = useState(false);
+  const [lang, setLang] = useState<Lang>('en');
 
+  const t = translations[lang];
   const visibleProducts = showAllProducts ? PRODUCTS : PRODUCTS.slice(0, 16);
 
   useEffect(() => {
@@ -89,13 +194,15 @@ export default function App() {
   }, []);
 
   const navLinks: { name: string; href?: string; onClick?: () => void }[] = [
-    { name: 'Home',     href: '#home' },
-    { name: 'Gallery',  href: '#gallery' },
-    { name: 'Services', href: '#services' },
-    { name: 'Menu',     onClick: () => setIsMenuModalOpen(true) },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact',  href: '#contact' },
+    { name: t.nav.home,     href: '#home' },
+    { name: t.nav.gallery,  href: '#gallery' },
+    { name: t.nav.services, href: '#services' },
+    { name: t.nav.menu,     onClick: () => setIsMenuModalOpen(true) },
+    { name: t.nav.about,    href: '#about' },
+    { name: t.nav.contact,  href: '#contact' },
   ];
+
+  const toggleLang = () => setLang(l => l === 'en' ? 'es' : 'en');
 
   return (
     <div className="min-h-screen">
@@ -138,16 +245,33 @@ export default function App() {
                 </a>
               )
             )}
+            {/* Language toggle */}
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-stone-900 text-xs font-bold tracking-widest hover:bg-stone-100 transition-colors shadow-md border border-stone-200"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              {lang === 'en' ? 'ES' : 'EN'}
+            </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-inherit"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
+          {/* Mobile right side: lang toggle + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-stone-900 text-xs font-bold tracking-widest hover:bg-stone-100 transition-colors shadow-md border border-stone-200"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              {lang === 'en' ? 'ES' : 'EN'}
+            </button>
+            <button
+              className="p-2 text-inherit"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Nav */}
@@ -218,13 +342,13 @@ export default function App() {
                 href="#gallery"
                 className="px-8 py-4 bg-white/80 border border-stone-200 text-stone-900 rounded-full font-medium hover:bg-stone-50 transition-colors backdrop-blur-sm shadow-sm flex items-center justify-center gap-2"
               >
-                View Flavors <ChevronRight className="w-4 h-4" />
+                {t.hero.viewFlavors} <ChevronRight className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
                 className="px-8 py-4 bg-white/80 border border-stone-200 text-stone-900 rounded-full font-medium hover:bg-stone-50 transition-colors backdrop-blur-sm shadow-sm"
               >
-                Find Us
+                {t.hero.findUs}
               </a>
             </div>
           </motion.div>
@@ -241,10 +365,8 @@ export default function App() {
 
       {/* Photo Gallery */}
       <section id="gallery" className="relative py-24 overflow-hidden">
-        {/* Water background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-sky-50 to-blue-50" />
 
-        {/* Wave layer 1 */}
         <motion.div
           className="absolute inset-0 opacity-15"
           animate={{ x: [0, -60, 0] }}
@@ -255,7 +377,6 @@ export default function App() {
           </svg>
         </motion.div>
 
-        {/* Wave layer 2 */}
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{ x: [0, 80, 0] }}
@@ -266,7 +387,6 @@ export default function App() {
           </svg>
         </motion.div>
 
-        {/* Wave layer 3 — top shimmer */}
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{ x: [0, -100, 0] }}
@@ -279,11 +399,9 @@ export default function App() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">Our Signature Flavors</h2>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">{t.gallery.title}</h2>
             <div className="w-20 h-1 bg-stone-900 mb-6" />
-            <p className="text-stone-600 text-lg">
-              Each item is a masterpiece, made with locally sourced ingredients and a passion for perfection.
-            </p>
+            <p className="text-stone-600 text-lg">{t.gallery.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
@@ -316,7 +434,7 @@ export default function App() {
                 onClick={() => setShowAllProducts(prev => !prev)}
                 className="px-8 py-3 bg-blue-500 text-white rounded-full font-medium text-sm tracking-wide hover:bg-blue-600 transition-colors shadow-sm"
               >
-                {showAllProducts ? 'Show Less' : 'Show More'}
+                {showAllProducts ? t.gallery.showLess : t.gallery.showMore}
               </button>
             </div>
           )}
@@ -327,7 +445,6 @@ export default function App() {
       <section id="services" className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-300 to-cyan-200" />
 
-        {/* Animated bubbles */}
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
@@ -338,14 +455,12 @@ export default function App() {
           />
         ))}
 
-        {/* Top wave */}
         <div className="absolute top-0 left-0 right-0">
           <svg viewBox="0 0 1440 50" preserveAspectRatio="none" className="w-full h-8 md:h-12" fill="#f5f5f4">
             <path d="M0,35 Q180,0 360,25 Q540,50 720,20 Q900,0 1080,30 Q1260,50 1440,15 L1440,0 L0,0 Z" />
           </svg>
         </div>
 
-        {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 50" preserveAspectRatio="none" className="w-full h-8 md:h-12" fill="white">
             <path d="M0,15 Q180,50 360,25 Q540,0 720,30 Q900,50 1080,20 Q1260,0 1440,35 L1440,50 L0,50 Z" />
@@ -361,11 +476,9 @@ export default function App() {
             className="max-w-5xl mx-auto"
           >
             <div className="text-center mb-10">
-              <span className="text-blue-700 uppercase tracking-widest text-xs mb-2 block">What We Offer</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-blue-950 mb-3">Purified Reverse Osmosis Water</h2>
-              <p className="text-blue-800 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                We use a professional reverse osmosis purification system to remove impurities and deliver clean, fresh, great-tasting water.
-              </p>
+              <span className="text-blue-700 uppercase tracking-widest text-xs mb-2 block">{t.services.tag}</span>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-blue-950 mb-3">{t.services.title}</h2>
+              <p className="text-blue-800 text-sm md:text-base max-w-xl mx-auto leading-relaxed">{t.services.subtitle}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -377,16 +490,14 @@ export default function App() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-white/70 shadow-lg flex flex-col"
               >
-                <span className="text-blue-600 uppercase tracking-widest text-xs font-bold mb-4">Pay As You Go</span>
+                <span className="text-blue-600 uppercase tracking-widest text-xs font-bold mb-4">{t.services.payTag}</span>
                 <div className="flex items-end gap-1 mb-1">
                   <span className="font-black text-6xl text-blue-950 leading-none">$0.40</span>
-                  <span className="text-blue-600 text-sm font-semibold mb-2">/ gallon</span>
+                  <span className="text-blue-600 text-sm font-semibold mb-2">{t.services.gallon}</span>
                 </div>
-                <p className="text-blue-700 text-sm mb-6 leading-relaxed">
-                  No commitment needed. Fill up any time and pay per gallon — perfect for occasional use or trying us out.
-                </p>
+                <p className="text-blue-700 text-sm mb-6 leading-relaxed">{t.services.payDesc}</p>
                 <ul className="space-y-2 mt-auto">
-                  {['No sign-up required', 'Fill any size container', 'Fresh every visit'].map(b => (
+                  {t.services.payFeatures.map(b => (
                     <li key={b} className="flex items-center gap-2 text-blue-800 text-sm">
                       <span className="w-4 h-4 rounded-full bg-blue-400/40 flex items-center justify-center text-blue-700 shrink-0">✓</span>
                       {b}
@@ -403,17 +514,15 @@ export default function App() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="bg-blue-700/80 backdrop-blur-md rounded-2xl p-8 border border-blue-500/50 shadow-xl flex flex-col relative overflow-hidden"
               >
-                <span className="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow">Best Value</span>
-                <span className="text-cyan-300 uppercase tracking-widest text-xs font-bold mb-4">Prepaid Program</span>
+                <span className="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow">{t.services.prepaidBadge}</span>
+                <span className="text-cyan-300 uppercase tracking-widest text-xs font-bold mb-4">{t.services.prepaidTag}</span>
                 <div className="flex items-end gap-1 mb-1">
                   <span className="font-black text-6xl text-white leading-none">$0.35</span>
-                  <span className="text-cyan-300 text-sm font-semibold mb-2">/ gallon</span>
+                  <span className="text-cyan-300 text-sm font-semibold mb-2">{t.services.gallon}</span>
                 </div>
-                <p className="text-blue-100 text-sm mb-6 leading-relaxed">
-                  Pre-purchase your water and save. Ideal for families or daily use — the more you use, the more you save.
-                </p>
+                <p className="text-blue-100 text-sm mb-6 leading-relaxed">{t.services.prepaidDesc}</p>
                 <ul className="space-y-2 mt-auto">
-                  {['Save 12% vs regular price', 'Great for daily & family use', 'Locked-in low rate'].map(b => (
+                  {t.services.prepaidFeatures.map(b => (
                     <li key={b} className="flex items-center gap-2 text-blue-100 text-sm">
                       <span className="w-4 h-4 rounded-full bg-cyan-400/30 flex items-center justify-center text-cyan-300 shrink-0">✓</span>
                       {b}
@@ -432,8 +541,6 @@ export default function App() {
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-700/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-10">
-
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -441,16 +548,14 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
-            <span className="text-cyan-400 uppercase tracking-widest text-xs mb-2 block">Our Story</span>
+            <span className="text-cyan-400 uppercase tracking-widest text-xs mb-2 block">{t.about.tag}</span>
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
-              Your Neighborhood Stop for Water, Ice & More
+              {t.about.title}
             </h2>
             <div className="w-12 h-0.5 bg-cyan-400 mx-auto" />
           </motion.div>
 
-          {/* Main content */}
           <div className="flex flex-col lg:flex-row items-start gap-8">
-            {/* Photo */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -462,7 +567,6 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a35]/60 to-transparent" />
             </motion.div>
 
-            {/* Text */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -471,20 +575,19 @@ export default function App() {
               className="flex-1 flex flex-col gap-4 pt-1"
             >
               <p className="text-slate-300 text-sm leading-relaxed">
-                Located at <span className="text-white font-semibold">40th Street & Thomas in Phoenix, AZ</span>, Water &amp; Ice is a one-stop neighborhood shop serving the community with quality, freshness, and great value every day.
+                {t.about.p1before}<span className="text-white font-semibold">{t.about.p1bold}</span>{t.about.p1after}
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
-                We carry <span className="text-white font-semibold">The Original Thrifty Ice Cream</span> — a classic Phoenix staple — alongside a wide variety of frozen treats, agua frescas, licuados, smoothies, and savory snacks. From Mangoneadas to Sandia Loka, every item is made fresh to order with real ingredients.
+                {t.about.p2before}<span className="text-white font-semibold">{t.about.p2bold}</span>{t.about.p2after}
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
-                We also offer <span className="text-white font-semibold">purified reverse osmosis water</span> by the gallon at some of the most affordable prices in town — because clean water shouldn't be a luxury.
+                {t.about.p3before}<span className="text-white font-semibold">{t.about.p3bold}</span>{t.about.p3after}
               </p>
 
-              {/* Highlights row */}
               <div className="grid grid-cols-2 gap-3 mt-1">
                 {[
-                  { value: '$0.35', label: 'Per Gallon' },
-                  { value: '7', label: 'Days a Week' },
+                  { value: '$0.35', label: t.about.statGallon },
+                  { value: '7', label: t.about.statDays },
                 ].map(({ value, label }) => (
                   <div key={label} className="bg-white/5 border border-white/10 rounded-xl py-3 px-2 text-center">
                     <div className="font-black text-xl text-cyan-400 leading-none mb-0.5">{value}</div>
@@ -493,12 +596,8 @@ export default function App() {
                 ))}
               </div>
 
-              {/* What we offer pills */}
               <div className="flex flex-wrap gap-2 mt-2">
-                {[
-                  'Thrifty Ice Cream', 'Purified RO Water', 'Mangoneadas', 'Agua Frescas',
-                  'Licuados & Smoothies', 'Shaved Ice', 'Fruit Cocktails', 'Snacks & More',
-                ].map(tag => (
+                {t.about.tags.map(tag => (
                   <span key={tag} className="px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-slate-300 text-xs font-medium tracking-wide">
                     {tag}
                   </span>
@@ -506,7 +605,6 @@ export default function App() {
               </div>
             </motion.div>
           </div>
-
         </div>
       </section>
 
@@ -516,10 +614,8 @@ export default function App() {
           <div className="bg-[#FDFCFB] rounded-2xl p-6 md:p-10 border border-stone-100 shadow-sm overflow-hidden relative">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
               <div>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">Visit Our Shop</h2>
-                <p className="text-stone-500 mb-6 text-sm">
-                  We'd love to see you! Stop by for a tasting or just to say hello.
-                </p>
+                <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">{t.contact.title}</h2>
+                <p className="text-stone-500 mb-6 text-sm">{t.contact.subtitle}</p>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -527,7 +623,7 @@ export default function App() {
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm">Address</h4>
+                      <h4 className="font-bold text-sm">{t.contact.addressLabel}</h4>
                       <p className="text-stone-500 text-sm">3911 E Thomas Rd #4, Phoenix, AZ 85018</p>
                     </div>
                   </div>
@@ -537,7 +633,7 @@ export default function App() {
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm">Phone</h4>
+                      <h4 className="font-bold text-sm">{t.contact.phoneLabel}</h4>
                       <a href="tel:+16022751231" className="text-stone-500 text-sm hover:text-stone-900 transition-colors">
                         602-275-1231
                       </a>
@@ -549,11 +645,9 @@ export default function App() {
                       <Clock className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm mb-0.5">Opening Hours</h4>
+                      <h4 className="font-bold text-sm mb-0.5">{t.contact.hoursLabel}</h4>
                       <div className="text-stone-500 text-sm space-y-0.5">
-                        <p>Mon – Thu: 9:00 AM – 9:00 PM</p>
-                        <p>Fri – Sat: 9:00 AM – 10:00 PM</p>
-                        <p>Sun: 10:00 AM – 9:00 PM</p>
+                        {t.contact.hours.map(h => <p key={h}>{h}</p>)}
                       </div>
                     </div>
                   </div>
@@ -632,10 +726,10 @@ export default function App() {
 
           <div className="flex flex-col items-center gap-1">
             <p className="text-stone-400 text-sm">
-              © 2026 Water And Ice<span className="hidden sm:inline">: 40Th St & Thomas</span>. All rights reserved.
+              © 2026 Water And Ice<span className="hidden sm:inline">: 40Th St & Thomas</span>. {t.footer.rights}
             </p>
             <p className="text-stone-400 text-xs">
-              Created by{' '}
+              {t.footer.createdBy}{' '}
               <a
                 href="https://www.summervibe.tech"
                 target="_blank"
@@ -648,8 +742,8 @@ export default function App() {
           </div>
 
           <div className="flex gap-8">
-            <a href="#" className="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900">Privacy</a>
-            <a href="#" className="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900">Terms</a>
+            <a href="#" className="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900">{t.footer.privacy}</a>
+            <a href="#" className="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900">{t.footer.terms}</a>
           </div>
         </div>
       </footer>
