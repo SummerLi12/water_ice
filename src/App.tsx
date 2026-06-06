@@ -219,7 +219,7 @@ export default function App() {
               alt="Water And Ice"
               className="h-10 w-auto object-contain"
             />
-            <span className="text-sm font-bold tracking-widest text-stone-900">
+            <span className="hidden sm:inline text-sm font-bold tracking-widest text-stone-900">
               40Th St &amp; Thomas
             </span>
           </a>
