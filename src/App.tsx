@@ -76,6 +76,9 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
+  const [showAllProducts, setShowAllProducts] = useState(false);
+
+  const visibleProducts = showAllProducts ? PRODUCTS : PRODUCTS.slice(0, 16);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -283,15 +286,15 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {PRODUCTS.map((product, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
+            {visibleProducts.map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+                transition={{ delay: (index % 16) * 0.05 }}
+                className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
@@ -300,12 +303,23 @@ export default function App() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-serif text-lg font-bold text-stone-900 text-center">{product.name}</h3>
+                <div className="p-2 sm:p-5">
+                  <h3 className="font-serif text-xs sm:text-lg font-bold text-stone-900 text-center leading-tight">{product.name}</h3>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {PRODUCTS.length > 16 && (
+            <div className="flex justify-center mt-10">
+              <button
+                onClick={() => setShowAllProducts(prev => !prev)}
+                className="px-8 py-3 bg-blue-500 text-white rounded-full font-medium text-sm tracking-wide hover:bg-blue-600 transition-colors shadow-sm"
+              >
+                {showAllProducts ? 'Show Less' : 'Show More'}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
